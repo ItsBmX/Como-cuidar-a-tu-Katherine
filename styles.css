@@ -1,0 +1,263 @@
+@font-face{font-family:Prime;src:url(assets/fonts/CourierPrime-Regular.ttf) format("truetype");font-weight:400;font-style:normal}
+@font-face{font-family:Prime;src:url(assets/fonts/CourierPrime-Bold.ttf) format("truetype");font-weight:700;font-style:normal}
+@font-face{font-family:Prime;src:url(assets/fonts/CourierPrime-Italic.ttf) format("truetype");font-weight:400;font-style:italic}
+@font-face{font-family:Playfair;src:url(assets/fonts/Playfair.ttf) format("truetype");font-weight:400 900;font-style:normal}
+@font-face{font-family:Playfair;src:url(assets/fonts/Playfair-Italic.ttf) format("truetype");font-weight:400 900;font-style:italic}
+@font-face{font-family:Hand;src:url(assets/fonts/Caveat.ttf) format("truetype");font-weight:400 700}
+@page{size:Letter portrait;margin:0}
+:root{--ink:#32241b;--rust:#8b2a14;--forest:#293e26;--gold:#f4d67f;--rule:#82684b;--paper:#f1dfb2}
+*{box-sizing:border-box}
+html{font-size:12pt}
+body{margin:0;color:var(--ink);font:400 14.5pt/1.45 Prime,"Courier New",monospace;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{position:relative;isolation:isolate;width:8.5in;height:11in;padding:.62in .7in 1in;break-after:page;overflow:hidden;background:#e8cf9c url(assets/parchment.jpg) center/100% 100% no-repeat}
+.sheet::before,.sheet::after{position:absolute;content:"";z-index:-1;pointer-events:none}
+.sheet::before{inset:.14in;border:2px solid #8a6a3c;border-radius:10px 4px 8px 4px}
+.sheet::after{display:none}
+.sheet:last-child{break-after:auto}
+.cover{padding:0;background:#30341e}
+.cover::before,.cover::after{display:none}
+.cover img{display:block;width:100%;height:100%;object-fit:fill}
+.content{position:relative;display:flow-root;z-index:1;max-width:100%;height:100%}
+.folio,.stamp,.leaf,.compass{position:absolute;pointer-events:none}
+.leaf{z-index:0;width:1.79in;opacity:.74}
+.leaf.top{top:.09in;left:.06in;transform:scaleX(-1)}
+.leaf.bottom{bottom:.08in;left:.09in;width:1.54in;transform:scaleY(-1) rotate(-7deg)}
+.stamp{z-index:0;width:1.09in;bottom:.22in;right:.23in;transform:rotate(-9deg);opacity:.90}
+.folio{z-index:2;bottom:.25in;left:50%;transform:translateX(-50%);min-width:.38in;padding:.01in .05in;color:var(--rust);border-top:1px solid #9d6348;text-align:center;font-size:12pt;font-weight:700;letter-spacing:.13em}
+.compass{width:.75in;right:.27in;top:.22in;opacity:.9;transform:rotate(8deg);z-index:0}
+h1,h2,h3,p,blockquote,figure{margin:0}
+h1,h2,h3{font-family:Playfair,Georgia,serif;font-weight:700;line-height:1.04}
+h1,h2{color:var(--rust);font-size:36pt;text-wrap:balance}
+h3{color:var(--forest);font:700 24pt/1.05 Hand,cursive;text-wrap:balance}
+header{text-align:center;margin:0 auto .37in}
+header h2{padding:0 .24in}
+header.hero::after{content:"";display:block;background:var(--rust);width:54%;height:4px;clip-path:polygon(0 100%,10% 40%,50% 0,88% 38%,100% 100%,53% 51%);margin:.13in auto 0}
+.ribbon{position:relative;isolation:isolate;display:inline-block;max-width:100%;padding:.06in .26in .09in}
+.ribbon::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(175deg,#f7e3ae,#e9c887 60%,#efd49b);clip-path:polygon(2% 4%,16% 0,29% 4%,54% 1%,69% 4%,95% 1%,98% 9%,97% 26%,100% 39%,97% 58%,99% 79%,96% 94%,83% 98%,64% 94%,49% 100%,31% 95%,20% 99%,4% 95%,1% 87%,3% 72%,0 62%,3% 45%,0 34%,3% 22%,1% 12%);}
+.ray-ribbon::after,.ray-left::before{content:"";position:absolute;top:calc(50% - 13px);width:24px;height:26px;background:var(--rust);clip-path:polygon(5% 45%,98% 47%,98% 58%,5% 56%,5% 49%,42% 38%,72% 3%,90% 0,69% 34%,54% 47%,60% 60%,93% 97%,73% 96%,40% 62%)}
+.ray-ribbon::after{right:-27px;transform:scaleX(-1)}
+.ray-left{position:relative;display:inline-block}
+.ray-left::before{left:-27px}
+.tag{margin:0 0 .08in;color:var(--forest);font:700 28pt/1 Hand,cursive}
+p{margin:0 0 .17in}
+em{font-style:italic}
+strong{font-weight:700}
+.mark{padding:0 .035in;background:linear-gradient(transparent 18%,#efcb56c9 19%,#efcb56c9 95%,transparent 95%);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.quote,.alert,.rulebox{position:relative;margin:.16in 0 .22in;padding:.15in .20in;background:#f6e6bb}
+.quote{border:4px double var(--rust);border-radius:12px 4px 11px 3px;font-weight:700}
+.quote p,.alert p,.rulebox p{margin:0}
+.alert{border:5px double #962d1b;padding-left:.60in}
+.alert::before{content:"";display:block;position:absolute;left:.13in;top:.17in;width:.33in;height:.30in;background:center/contain no-repeat url(assets/warning.svg)}
+.alert strong{color:#751f15}
+.rulebox{border:1px solid #9f6e39;border-left:4px solid #ad7f38}
+.section-heading{margin:.2in 0 .085in;padding-left:.21in}
+.section-heading+.ribbon{margin-top:0}
+.epigraph{padding:.1in .16in;border-top:1px solid #ba905c;border-bottom:1px solid #ba905c;text-align:center;font-weight:700;background:#efd9a6}
+.art{display:block;max-width:100%;object-fit:contain}
+.feature-art{display:flex;align-items:center;justify-content:center;min-height:1.53in;margin:.03in 0 .2in}
+.feature-art img{width:2.42in;height:1.51in;object-fit:contain}
+.art-line{display:flex;align-items:center;gap:.25in;justify-content:center;margin:.2in 0 .24in}
+.art-line::before,.art-line::after{content:"";width:24%;height:1px;background:linear-gradient(90deg,transparent,#a1784d)}
+.art-line::after{transform:scaleX(-1)}
+.art-line img{width:1.60in;height:1.0in}
+.art-medallion{display:grid;place-items:center;width:2.75in;height:2.75in;margin:.28in auto .32in;border:4px double #9e6d3f;border-radius:50%;background:radial-gradient(#f1dcab,#ecd29b 62%);transform:rotate(-6deg)}
+.art-medallion img{width:1.98in;height:1.43in}
+table{width:100%;border-collapse:collapse;margin:.18in 0 .2in;font-size:inherit}
+table:not(.toc){background:#f6e5bb;border:1px solid #9a754d}
+td,th{text-align:left;vertical-align:middle;padding:.105in .14in;border-bottom:1px solid #9f8058;}
+th{font-weight:700;color:#294024;background:#e6c98f}
+tbody tr:nth-child(even){background:#efd8a3}
+td:first-child{font-weight:700}
+.toc{margin-top:.23in;font-size:15pt}
+.toc td,.toc th{padding:.031in .12in}
+.toc th{height:.44in;background:none;border:0}
+.toc tr:nth-child(even){background:none}
+.toc td:first-child{width:1.30in;border-right:1px solid #b99566}
+.toc td:nth-child(2){padding-left:.17in}
+.toc td:last-child{width:1.34in;padding-right:0}
+.toc img{width:1.22in;height:.61in;margin:auto}
+.toc a{width:.94in;text-align:center;color:#8b2a14;text-decoration:none;font-family:Playfair,Georgia,serif;font-size:22pt;line-height:1.1;filter:none}
+.toc a:focus,.toc a:hover{text-decoration:underline}
+.index header h2{line-height:.94;font-size:38pt;padding:.08in .26in;color:var(--ink)}
+.index header h2 span span span{color:var(--rust)}
+.index header{margin-bottom:.10in}
+.index .compass{width:1.12in;right:.34in;top:.37in}
+.index-note{margin:.19in .08in 0;color:#523a2d;font:italic 13pt/1.32 Playfair,Georgia,serif}
+.opening header{margin:.7in 0 .14in}
+.opening h1{font-size:40pt}
+.opening .subtitle{font:italic 14pt/1.38 Playfair,Georgia,serif;text-align:center;color:var(--forest);margin:0 .27in .28in}
+.opening .intro{text-align:center}
+.opening .art-medallion{width:2.36in;height:2.36in;margin:.25in auto}
+.opening .art-medallion img{width:1.50in;height:1.74in}
+.prologue{font-size:14pt}
+.prologue .content{padding:.11in .12in 0}
+.prologue header{text-align:left;margin:0 .05in .20in}
+.prologue header h2{font-size:24pt;padding:0}
+.prologue .salute{display:inline-block;margin:.04in 0 .22in;color:var(--forest);border-bottom:2px solid var(--rust);font:italic 22pt Playfair,Georgia,serif;transform:rotate(-2deg)}
+.prologue .content>p:not(.salute){margin-bottom:.23in}
+.prologue .quote{margin-top:.26in}
+.prologue .stamp{width:1.43in;bottom:.30in;right:.32in}
+.prologue .leaf.top{left:auto;right:.09in;transform:none}
+.identification{font-size:12.5pt;line-height:1.22}
+.identification header{margin:0 auto .13in}
+.identification header h2{font-size:29pt}
+.identification p{margin:0 0 .11in}
+.identification .epigraph{margin-bottom:.13in}
+.portrait{float:right;width:2.11in;margin:.03in -.04in .08in .17in;filter:drop-shadow(2px 4px 4px #54361384)}
+.portrait img{width:100%}
+.identification .section-heading{margin:.13in 0 .07in}
+.identification .section-heading h3{font-size:15.5pt}
+.identification .provisions{clear:both}
+.identification .provisions p{padding:.075in .17in;border:1px solid #b18957;background:#f1dba4;text-align:center}
+.provisions-ink{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:.07in .19in}
+.provisions-ink img{width:100%;height:.62in;padding:0 .18in}
+.provisions-ink img+img{border-left:1px solid #ad80537a}
+.identification .comfort{display:grid;grid-template-columns:1.21in 1fr;column-gap:.15in;align-items:center}
+.identification .comfort img{grid-row:1 / span 2;width:1.14in;max-height:1.2in}
+.identification .comfort p:last-child{margin-bottom:0}
+.identification .stamp{width:.82in;right:.15in;bottom:.12in}
+.ritual p.step{padding:.11in .17in .13in;background:#efd49c;border-top:1px solid #ad8151}
+.ritual p.step strong{display:block;margin:0 0 .04in;color:var(--forest)}
+.ledger table{margin:.36in auto .33in;max-width:6.28in}
+.ledger td,.ledger th{padding:.18in .21in}
+.ledger tbody tr:last-child{border-top:2px solid var(--rust);color:var(--rust)}
+.heat .art-medallion{width:3.14in;height:3.14in;margin:.55in auto .48in}
+.heat .art-medallion img{height:2.25in;width:2.25in}
+.heat .content>p{margin:.14in .39in;padding:.20in;border-top:1px solid #a57649;border-bottom:1px solid #a57649;background:#f6e6bb;font-size:14pt}
+.contacts table{margin:.38in 0;font-size:15pt}
+.contacts td,.contacts th{padding:.19in .13in}
+.notes .note-group{margin:.25in .17in .14in}
+.notes .note-group p{color:var(--forest);margin:0}
+.notes hr{border:0;border-bottom:1px solid #9f805e;margin:0;height:.42in}
+.certificate .content{padding:.36in .42in;text-align:center;border:6px double #8c452a;outline:1px solid #af8249;outline-offset:-14px;background:#f4e2b2}
+.certificate header{margin:.18in auto .22in}
+.certificate header h2{font-size:32pt;padding:0}
+.certificate .department{color:var(--forest);font:italic 14pt/1.32 Playfair,Georgia,serif}
+.certificate .certificate-title{color:var(--rust);font:700 20pt/1.12 Playfair,Georgia,serif;padding:.13in 0 .16in}
+.certificate .cert-lines{text-align:left;margin:.27in .10in .15in}
+.certificate .valid{font-size:12pt;margin:.27in 0 .09in}
+.certificate .stamp{bottom:.28in;right:.26in}
+.ending .content{padding:.34in .18in}
+.ending header{margin:0 auto .34in}
+.ending .feature-art{margin:0}
+.ending .feature-art img{width:.85in;height:1.0in}
+.ending .fin{text-align:center;color:var(--forest);font:italic 16pt Playfair,Georgia,serif;margin:.27in 0 0}
+@media screen{body{background:#392b22}.sheet{margin:24px auto;box-shadow:0 5px 28px #1c120d}.cover{box-shadow:0 5px 28px #1c120d}}
+@media print{.sheet{margin:0}}
+
+/* v2: pages that were half empty get larger type and art */
+.ritual,.contacts,.ledger{font-size:16pt;line-height:1.5}
+.hazards,.ending{font-size:15.5pt;line-height:1.5}
+.kit,.respiratory,.supplies,.travel{font-size:14.5pt;line-height:1.45}
+.sheet .feature-art{min-height:1.9in;margin:.05in 0 .22in}
+.sheet .feature-art img{width:3.1in;height:1.9in}
+.travel .feature-art{min-height:1.6in;margin:0 0 .12in}
+.travel .feature-art img{width:2.6in;height:1.6in}
+.ritual .feature-art{min-height:2.3in}
+.ritual .feature-art img{width:3.6in;height:2.2in}
+.ritual p.step{margin-bottom:.2in;padding:.18in .24in .2in}
+.kit table td,.kit table th,.supplies table td,.supplies table th{padding:.11in .16in}
+.kit .rulebox,.kit .alert,.respiratory .rulebox,.respiratory .alert,.hazards .alert,.contacts .alert{margin:.16in 0 .2in}
+.kit .epigraph,.hazards .epigraph{font-size:14.5pt}
+.ledger .art-medallion{width:3.3in;height:3.3in}
+.ledger .art-medallion img{width:2.4in;height:auto}
+
+.ritual,.contacts,.ledger{font-size:15pt}
+.ritual .feature-art{min-height:1.9in}.ritual .feature-art img{width:3.1in;height:1.9in}
+.ledger table{margin:.2in auto .2in}.ledger td,.ledger th{padding:.13in .2in}
+.ledger .art-medallion{width:2.9in;height:2.9in;margin:.2in auto .25in}
+.supplies{font-size:14pt}.supplies .feature-art{min-height:1.5in}.supplies .feature-art img{width:2.4in;height:1.5in}
+.travel{font-size:14pt;line-height:1.4}.travel .feature-art{min-height:1.2in}.travel .feature-art img{width:2.2in;height:1.3in}
+.ending{font-size:14.5pt}
+.identification{font-size:12.2pt;line-height:1.2}
+.identification header h2{font-size:27pt}
+.identification .portrait{width:1.95in}
+.identification .section-heading h3{font-size:19pt}
+.identification .tag{font-size:24pt}
+.identification .provisions-ink img{height:.55in}
+.identification .comfort img{width:1in}
+.identification{font-size:12pt;line-height:1.18}
+.identification .section-heading{margin:.1in 0 .05in}
+.identification p{margin:0 0 .09in}
+.ritual p.step{margin-bottom:.14in;padding:.14in .22in .16in}
+.ritual .feature-art{min-height:1.7in}.ritual .feature-art img{width:2.8in;height:1.7in}
+.supplies{font-size:13.5pt}.supplies td,.supplies th{padding:.09in .14in}
+.travel{font-size:13pt;line-height:1.38}
+.travel .feature-art{min-height:1in;margin:0 0 .05in}.travel .feature-art img{width:1.9in;height:1.1in}
+.travel .section-heading{margin:.14in 0 .06in}
+.travel p{margin:0 0 .12in}
+
+/* v3: dibujado a mano */
+.stamp,.prologue .stamp,.identification .stamp{width:.82in;bottom:.17in;right:.2in}
+.quote,.alert{background:url(assets/frame-rust.svg) 0 0/100% 100% no-repeat;border:0;border-radius:0;padding:.24in .3in}
+.alert{padding-left:.72in}
+.alert::before{left:.26in;top:.26in}
+.rulebox{background:url(assets/frame-note.svg) 0 0/100% 100% no-repeat;border:0;padding:.2in .26in .2in .34in}
+.epigraph{border:0;background:url(assets/line-a.svg) left top/100% 7px no-repeat,url(assets/line-b.svg) left bottom/100% 7px no-repeat;padding:.14in .2in}
+table:not(.toc){background:url(assets/frame-brown.svg) 0 0/100% 100% no-repeat;border:0;border-collapse:separate;border-spacing:0;padding:.16in .16in .12in}
+table:not(.toc) th{background:url(assets/ribbon-head.svg) center/100% 100% no-repeat;border:0;color:var(--rust);font:700 19pt/1.1 Hand,cursive;padding:.1in .2in}
+table:not(.toc) td{border:0;background:url(assets/line-a.svg) left bottom/100% 7px no-repeat;padding:.11in .2in .13in}
+table:not(.toc) tbody tr:nth-child(2n) td{background-image:url(assets/line-b.svg)}
+table:not(.toc) tbody tr:nth-child(3n) td{background-image:url(assets/line-c.svg)}
+table:not(.toc) tbody tr:last-child td{background-image:none}
+table:not(.toc) tbody tr:nth-child(even){background:none}
+table:not(.toc) td:first-child{color:var(--rust);font:700 18pt/1.1 Hand,cursive;width:34%;background-image:url(assets/vline-a.svg),url(assets/line-a.svg);background-position:right center,left bottom;background-size:7px 78%,100% 7px;background-repeat:no-repeat}
+table:not(.toc) tbody tr:nth-child(2n) td:first-child{background-image:url(assets/vline-b.svg),url(assets/line-b.svg)}
+table:not(.toc) tbody tr:nth-child(3n) td:first-child{background-image:url(assets/vline-a.svg),url(assets/line-c.svg)}
+table:not(.toc) tbody tr:last-child td:first-child{background-image:url(assets/vline-b.svg)}
+.ledger tbody tr:last-child td{background-image:url(assets/line-double.svg);background-position:left top;background-size:100% 10px;background-repeat:no-repeat;color:var(--rust);font-weight:700}
+.ledger tbody tr:last-child td:first-child{background-image:url(assets/line-double.svg),url(assets/vline-b.svg);background-position:left top,right center;background-size:100% 10px,7px 78%}
+.toc th{background:url(assets/ribbon-head.svg) center/100% 100% no-repeat;font:700 18pt/1 Hand,cursive;color:var(--rust);height:.5in;text-align:center}
+.toc td{border:0;background:url(assets/line-a.svg) left bottom/100% 7px no-repeat}
+.toc tr:nth-child(even) td{background-image:url(assets/line-b.svg)}
+.toc tr:last-child td{background-image:none}
+.toc td:first-child{border:0;background-image:url(assets/vline-a.svg),url(assets/line-a.svg);background-position:right center,left bottom;background-size:7px 78%,100% 7px;background-repeat:no-repeat}
+.toc tr:nth-child(even) td:first-child{background-image:url(assets/vline-b.svg),url(assets/line-b.svg)}
+.toc tr:last-child td:first-child{background-image:url(assets/vline-a.svg)}
+.notes hr{border:0;height:.42in;background:url(assets/line-a.svg) left bottom/100% 7px no-repeat}
+.notes hr:nth-of-type(2n){background-image:url(assets/line-b.svg)}
+.notes .note-group p{font:700 22pt/1.1 Hand,cursive;color:var(--rust)}
+.certificate .content{border:0;outline:0;background:url(assets/frame-cert.svg) 0 0/100% 100% no-repeat}
+.certificate .stamp{bottom:1.15in;right:.95in;width:1in}
+.ledger table{max-width:6.28in}
+.sheet{padding-top:.7in}
+.prologue{font-size:13.5pt;line-height:1.4}
+.prologue .content>p:not(.salute){margin-bottom:.17in}
+.kit .feature-art{min-height:1.4in;margin:0 0 .12in}.kit .feature-art img{width:2.4in;height:1.4in}
+.kit .epigraph{margin:.08in 0 .1in}
+.kit table td{padding:.08in .18in .1in}
+.supplies .feature-art{min-height:1.1in;margin:0 0 .08in}.supplies .feature-art img{width:1.9in;height:1.1in}
+.supplies table td{padding:.06in .16in .08in}
+.supplies table:not(.toc) td:first-child{font-size:16pt}
+.ending{font-size:14pt;line-height:1.42}
+.ending header{margin-bottom:.2in}
+.ending .fin{margin-top:.16in}
+.identification header{margin-bottom:.08in}
+.identification .epigraph{margin-bottom:.08in;padding:.1in .16in}
+.identification .section-heading{margin:.07in 0 .04in}
+.identification .provisions-ink{margin:.03in .19in}
+.identification .provisions-ink img{height:.5in}
+.identification .provisions p{padding:.05in .14in}
+.identification p{margin:0 0 .07in}
+.respiratory .feature-art{min-height:1.3in;margin:0 0 .1in}.respiratory .feature-art img{width:2.4in;height:1.35in}
+.respiratory .rulebox,.respiratory .alert{margin:.1in 0 .14in}
+.respiratory p{margin:0 0 .12in}
+.heat .content>p{background:url(assets/frame-note.svg) 0 0/100% 100% no-repeat;border:0;padding:.26in .34in}
+.ledger tbody tr:last-child td,.ledger tbody tr:last-child td:first-child{background-image:none}
+.ledger tbody tr:last-child td:first-child{background-image:url(assets/vline-b.svg);background-position:right center;background-size:7px 78%;background-repeat:no-repeat}
+.ledger tbody tr:last-child{font-size:1.1em}
+.toc th:empty{background:none}
+table:not(.toc) td:first-child{font-size:20pt}
+.supplies table:not(.toc) td:first-child{font-size:18pt}
+.certificate .stamp{z-index:3;bottom:1.35in;right:1in;width:1.15in}
+.device{margin:0 0 .08in;text-align:center}
+.device svg{display:block;width:100%;height:auto;max-height:3in}
+.respiratory{font-size:13pt;line-height:1.38}
+.respiratory header{margin-bottom:.16in}
+.respiratory p{margin:0 0 .09in}
+.respiratory .rulebox,.respiratory .alert{margin:.08in 0 .12in;padding-top:.18in;padding-bottom:.18in}
+.respiratory{font-size:12.5pt;line-height:1.36}
+.device svg{max-height:3.35in}
+.device img{display:block;margin:0 auto;height:3.4in;width:auto;max-width:100%}
+.device img{height:3.2in}
+.respiratory .rulebox,.respiratory .alert{margin:.06in 0 .1in}
